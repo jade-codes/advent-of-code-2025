@@ -25,32 +25,6 @@ mod day10;
 mod day11;
 #[path = "day12/solution.rs"]
 mod day12;
-#[path = "day13/solution.rs"]
-mod day13;
-#[path = "day14/solution.rs"]
-mod day14;
-#[path = "day15/solution.rs"]
-mod day15;
-#[path = "day16/solution.rs"]
-mod day16;
-#[path = "day17/solution.rs"]
-mod day17;
-#[path = "day18/solution.rs"]
-mod day18;
-#[path = "day19/solution.rs"]
-mod day19;
-#[path = "day20/solution.rs"]
-mod day20;
-#[path = "day21/solution.rs"]
-mod day21;
-#[path = "day22/solution.rs"]
-mod day22;
-#[path = "day23/solution.rs"]
-mod day23;
-#[path = "day24/solution.rs"]
-mod day24;
-#[path = "day25/solution.rs"]
-mod day25;
 
 fn run_day(day: u8, runner: fn()) {
     println!("\n{:=<50}", "");
@@ -83,19 +57,6 @@ fn main() {
     run_day(10, day10::main);
     run_day(11, day11::main);
     run_day(12, day12::main);
-    run_day(13, day13::main);
-    run_day(14, day14::main);
-    run_day(15, day15::main);
-    run_day(16, day16::main);
-    run_day(17, day17::main);
-    run_day(18, day18::main);
-    run_day(19, day19::main);
-    run_day(20, day20::main);
-    run_day(21, day21::main);
-    run_day(22, day22::main);
-    run_day(23, day23::main);
-    run_day(24, day24::main);
-    run_day(25, day25::main);
     
     let total_duration = total_start.elapsed();
     
