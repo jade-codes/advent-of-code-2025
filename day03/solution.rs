@@ -88,13 +88,37 @@ mod tests {
 
     #[test]
     fn test_part1() {
-        let input = vec![];
-        assert_eq!(part1(&input), 0);
+        let input = vec![
+            "987654321111111".to_string(),
+            "811111111111119".to_string(),
+            "234234234234278".to_string(),
+            "818181911112111".to_string(),
+        ];
+        assert_eq!(part1(&input), 357);
     }
 
     #[test]
     fn test_part2() {
+        let input = vec![
+            "987654321111111".to_string(),
+            "811111111111119".to_string(),
+            "234234234234278".to_string(),
+            "818181911112111".to_string(),
+        ];
+        assert_eq!(part2(&input), 3121910778619);
+    }
+
+    #[test]
+    fn test_single_line() {
+        let input = vec!["987654321111791".to_string()];
+        assert_eq!(part1(&input), 99);
+        assert_eq!(part2(&input), 987654321791);
+    }
+
+    #[test]
+    fn test_empty_input() {
         let input = vec![];
+        assert_eq!(part1(&input), 0);
         assert_eq!(part2(&input), 0);
     }
 }
