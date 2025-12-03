@@ -1,13 +1,8 @@
-# Day 3: TBD
+# Day 03: Battery Joltage
 
-## Part 1
+Rust solutions for the Advent of Code 2025 Day 03 puzzle.
 
-<!-- Problem description will go here -->
+- Part 1 selects 2 batteries from each sequence to maximize the resulting 2-digit number, using DP to track the best selection at each position.
+- Part 2 selects 12 batteries from each sequence to maximize the resulting 12-digit number, using the same DP approach with state `dp[i][j]` representing the maximum number formed by choosing `j` batteries from the first `i` positions.
 
-## Part 2
-
-<!-- Problem description will go here -->
-
-## Solution
-
-<!-- Solution notes will go here -->
+Run the day's tests with `cargo test --release day03::tests`.
