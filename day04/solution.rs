@@ -45,8 +45,8 @@ fn move_rolls(grid: &mut [Vec<char>]) -> i64 {
 
 fn part1(grid: &mut [Vec<char>]) -> i64 {
 
-    let total = move_rolls(grid);
-    total
+    
+    move_rolls(grid)
 }
 
 fn part2(grid: &mut [Vec<char>]) -> i64 {
