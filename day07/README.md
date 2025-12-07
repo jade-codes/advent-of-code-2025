@@ -1,13 +1,8 @@
-# Day 7: TBD
+# Day 07: Grid Path Navigation
 
-## Part 1
+Rust solutions for the Advent of Code 2025 Day 07 puzzle.
 
-<!-- Problem description will go here -->
+- Part 1 navigates down from the 'S' starting position, counting how many '^' branch points are encountered while exploring the grid.
+- Part 2 counts all possible distinct paths from 'S' to the bottom of the grid. At each '^' character, the path branches both left and right. Uses memoization to efficiently calculate the total number of paths.
 
-## Part 2
-
-<!-- Problem description will go here -->
-
-## Solution
-
-<!-- Solution notes will go here -->
+Run the day's tests with `cargo test --release day07`.
