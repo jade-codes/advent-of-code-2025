@@ -53,41 +53,41 @@ fn part1(grid: &[Vec<char>]) -> i64 {
     }
 }
 
-fn count_paths(grid: &[Vec<char>], row: usize, col: usize, memo: &mut HashMap<(usize, usize), i64>) -> i64 {
-    let next_row = row + 1;
-    
-    if next_row >= grid.len() {
-        return 1;
-    }
-
-    if let Some(&cached) = memo.get(&(next_row, col)) {
-        return cached;
-    }
-    
-    let mut total_paths = 0;
-    
-    if grid[next_row][col] == '^' {
-        if col > 0 {
-            total_paths += count_paths(grid, next_row, col - 1, memo);
-        }
-        if col + 1 < grid[next_row].len() {
-            total_paths += count_paths(grid, next_row, col + 1, memo);
-        }
-    } else {
-        total_paths += count_paths(grid, next_row, col, memo);
-    }
-    
-    memo.insert((next_row, col), total_paths);
-    total_paths
-}
-
 fn part2(grid: &[Vec<char>]) -> i64 {
-    if let Some(pos) = find_start_position(grid) {
-        let mut memo = HashMap::new();
-        count_paths(grid, 0, pos, &mut memo)
-    } else {
-        0
+    if grid.is_empty() {
+        return 0;
     }
+    
+    let start_pos = match find_start_position(grid) {
+        Some(pos) => pos,
+        None => return 0,
+    };
+    
+    let rows = grid.len();
+    let cols = grid[0].len();
+    
+    let mut dp = vec![vec![0i64; cols]; rows + 1];
+    
+    for col in 0..cols {
+        dp[rows][col] = 1;
+    }
+    
+    for row in (0..rows).rev() {
+        for col in 0..cols {
+            if grid[row][col] == '^' {
+                if col > 0 {
+                    dp[row][col] += dp[row + 1][col - 1];
+                }
+                if col + 1 < cols {
+                    dp[row][col] += dp[row + 1][col + 1];
+                }
+            } else {
+                dp[row][col] = dp[row + 1][col];
+            }
+        }
+    }
+    
+    dp[0][start_pos]
 }
 
 pub fn main() {
