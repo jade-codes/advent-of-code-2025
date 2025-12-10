@@ -3,15 +3,19 @@ use std::io::{BufRead, BufReader};
 use std::path::Path;
 
 /// Read input file and return a vector of lines
+/// Returns an empty vector if the file doesn't exist or is empty
 pub fn read_lines<P>(filename: P) -> Vec<String>
 where
     P: AsRef<Path>,
 {
-    let file = File::open(filename).expect("Unable to open file");
+    let file = match File::open(filename) {
+        Ok(f) => f,
+        Err(_) => return Vec::new(),
+    };
     let reader = BufReader::new(file);
     reader
         .lines()
-        .map(|line| line.expect("Unable to read line"))
+        .map_while(Result::ok)
         .collect()
 }
 
@@ -39,10 +43,11 @@ where
 }
 
 /// Read input file as a single string
+/// Returns an empty string if the file doesn't exist
 #[allow(dead_code)]
 pub fn read_input<P>(filename: P) -> String
 where
     P: AsRef<Path>,
 {
-    std::fs::read_to_string(filename).expect("Unable to read file")
+    std::fs::read_to_string(filename).unwrap_or_default()
 }
