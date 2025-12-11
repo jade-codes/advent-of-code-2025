@@ -8,6 +8,7 @@ name = "aoc2025"
 path = "main.rs"
 
 [dependencies]
+regex = "1.12.2"
 
 [profile.release]
 opt-level = 3
