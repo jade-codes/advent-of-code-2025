@@ -11,4 +11,3 @@ Rust solutions for the Advent of Code 2025 Day 11 puzzle.
 - **Graph traversal**: DFS-style recursive exploration with memo lookup before recursion
 
 Run the day's tests with `cargo test --release day11`.
-
